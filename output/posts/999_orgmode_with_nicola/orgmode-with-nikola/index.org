@@ -130,3 +130,11 @@ to check all the locales configured on ubuntu
   To add a picture simply type:
   [[file:<link>]]
 #+END_SRC
+* Generating post
+- type following command
+$ nikola new_post -e -f orgmode
+- quit editor
+- cd into the post folder
+- use emacs to add orgmode stuff to the file
+- rebuild with
+$ nikola build
