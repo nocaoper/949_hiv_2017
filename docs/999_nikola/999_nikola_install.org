@@ -18,4 +18,11 @@ I thought that it was about things in the emacs file. Finally it was
 about things in the conf.py file. So search the posts and search the
 compilers and add them into the conf.py file. Don't forget to commit.
 
-* 
+* Error about system language
+
+** solution: [[https://askubuntu.com/questions/162391/how-do-i-fix-my-locale-issue][Article set locale (askubuntu.com)]]
+$ locale
+to check all the locales configured on ubuntu
+
+sudo locale-gen "en_US.UTF-8"
+sudo dpkg-reconfigure locales
