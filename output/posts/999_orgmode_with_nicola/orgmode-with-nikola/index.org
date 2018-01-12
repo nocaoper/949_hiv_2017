@@ -9,8 +9,8 @@
 .. type: text
 #+END_COMMENT
 
-* First post on Nikola
-Thanks and comments on how to install static website generator. [[https://streakycobra.github.io/posts/blogging-in-org-mode-with-nikola/][Blogging in Org Mode With Nikola]]
+* Original post on Nikola
+Thanks to Fabien Dubosson. [[https://streakycobra.github.io/posts/blogging-in-org-mode-with-nikola/][Blogging in Org Mode With Nikola]]
 
 * Steps for installation
 
