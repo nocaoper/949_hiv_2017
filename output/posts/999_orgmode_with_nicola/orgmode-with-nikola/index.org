@@ -111,7 +111,7 @@ compilers and add them into the conf.py file. Don't forget to commit.
 ** solution: [[https://askubuntu.com/questions/162391/how-do-i-fix-my-locale-issue][Article set locale (askubuntu.com)]]
 - $ locale
 to check all the locales configured on ubuntu
-
+#+BEGIN_SRC text
 - $ sudo locale-gen "en_US.UTF-8"
 - $ sudo dpkg-reconfigure locales
   - From the list I search for en_US.UTF-8, which happens to be number 149
@@ -124,6 +124,7 @@ to check all the locales configured on ubuntu
   - I rerun the command
     - nikola new_post 999_nikola_install.org
     - it works!
+#+END_SRC
 
 * Adding a picture to orgmode
 ** from

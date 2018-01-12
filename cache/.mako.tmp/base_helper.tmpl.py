@@ -5,12 +5,12 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1515732972.9572551
+_modified_time = 1515733145.8582516
 _enable_loop = True
 _template_filename = '/home/nocaoper/docs/pyEnv/999_pyEnvNicolae/_env/lib/python3.5/site-packages/nikola/data/themes/bootstrap3/templates/base_helper.tmpl'
 _template_uri = 'base_helper.tmpl'
 _source_encoding = 'utf-8'
-_exports = ['html_stylesheets', 'late_load_js', 'html_feedlinks', 'html_navigation_links', 'html_headstart', 'html_translations']
+_exports = ['html_headstart', 'html_translations', 'html_stylesheets', 'late_load_js', 'html_feedlinks', 'html_navigation_links']
 
 
 def _mako_get_namespace(context, name):
@@ -48,187 +48,36 @@ def render_body(context,**pageargs):
         context.caller_stack._pop_frame()
 
 
-def render_html_stylesheets(context):
-    __M_caller = context.caller_stack._push_frame()
-    try:
-        _import_ns = {}
-        _mako_get_namespace(context, 'notes')._populate(_import_ns, ['*'])
-        _mako_get_namespace(context, 'feeds_translations')._populate(_import_ns, ['*'])
-        notes = _mako_get_namespace(context, 'notes')
-        annotations = _import_ns.get('annotations', context.get('annotations', UNDEFINED))
-        has_custom_css = _import_ns.get('has_custom_css', context.get('has_custom_css', UNDEFINED))
-        needs_ipython_css = _import_ns.get('needs_ipython_css', context.get('needs_ipython_css', UNDEFINED))
-        use_bundles = _import_ns.get('use_bundles', context.get('use_bundles', UNDEFINED))
-        use_cdn = _import_ns.get('use_cdn', context.get('use_cdn', UNDEFINED))
-        post = _import_ns.get('post', context.get('post', UNDEFINED))
-        __M_writer = context.writer()
-        __M_writer('\n')
-        if use_bundles:
-            if use_cdn:
-                __M_writer('            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">\n            <link href="/assets/css/all.css" rel="stylesheet" type="text/css">\n')
-            else:
-                __M_writer('            <link href="/assets/css/all-nocdn.css" rel="stylesheet" type="text/css">\n')
-        else:
-            if use_cdn:
-                __M_writer('            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">\n')
-            else:
-                __M_writer('            <link href="/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">\n')
-            __M_writer('        <link href="/assets/css/html4css1.css" rel="stylesheet" type="text/css">\n        <link href="/assets/css/nikola_rst.css" rel="stylesheet" type="text/css">\n        <link href="/assets/css/code.css" rel="stylesheet" type="text/css">\n        <link href="/assets/css/colorbox.css" rel="stylesheet" type="text/css">\n        <link href="/assets/css/theme.css" rel="stylesheet" type="text/css">\n')
-            if has_custom_css:
-                __M_writer('            <link href="/assets/css/custom.css" rel="stylesheet" type="text/css">\n')
-        if needs_ipython_css:
-            __M_writer('        <link href="/assets/css/ipython.min.css" rel="stylesheet" type="text/css">\n        <link href="/assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">\n')
-        if annotations and post and not post.meta('noannotations'):
-            __M_writer('        ')
-            __M_writer(str(notes.css()))
-            __M_writer('\n')
-        elif not annotations and post and post.meta('annotations'):
-            __M_writer('        ')
-            __M_writer(str(notes.css()))
-            __M_writer('\n')
-        return ''
-    finally:
-        context.caller_stack._pop_frame()
-
-
-def render_late_load_js(context):
-    __M_caller = context.caller_stack._push_frame()
-    try:
-        _import_ns = {}
-        _mako_get_namespace(context, 'notes')._populate(_import_ns, ['*'])
-        _mako_get_namespace(context, 'feeds_translations')._populate(_import_ns, ['*'])
-        lang = _import_ns.get('lang', context.get('lang', UNDEFINED))
-        colorbox_locales = _import_ns.get('colorbox_locales', context.get('colorbox_locales', UNDEFINED))
-        use_bundles = _import_ns.get('use_bundles', context.get('use_bundles', UNDEFINED))
-        use_cdn = _import_ns.get('use_cdn', context.get('use_cdn', UNDEFINED))
-        social_buttons_code = _import_ns.get('social_buttons_code', context.get('social_buttons_code', UNDEFINED))
-        __M_writer = context.writer()
-        __M_writer('\n')
-        if use_bundles:
-            if use_cdn:
-                __M_writer('            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.3/jquery.min.js"></script>\n            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>\n\n            <script src="/assets/js/all.js"></script>\n')
-            else:
-                __M_writer('            <script src="/assets/js/all-nocdn.js"></script>\n')
-        else:
-            if use_cdn:
-                __M_writer('            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.3/jquery.min.js"></script>\n            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>\n')
-            else:
-                __M_writer('            <script src="/assets/js/jquery.min.js"></script>\n            <script src="/assets/js/bootstrap.min.js"></script>\n            <script src="/assets/js/moment-with-locales.min.js"></script>\n            <script src="/assets/js/fancydates.js"></script>\n')
-            __M_writer('        <script src="/assets/js/jquery.colorbox-min.js"></script>\n')
-        if colorbox_locales[lang]:
-            __M_writer('        <script src="/assets/js/colorbox-i18n/jquery.colorbox-')
-            __M_writer(str(colorbox_locales[lang]))
-            __M_writer('.js"></script>\n')
-        __M_writer('    ')
-        __M_writer(str(social_buttons_code))
-        __M_writer('\n')
-        return ''
-    finally:
-        context.caller_stack._pop_frame()
-
-
-def render_html_feedlinks(context):
-    __M_caller = context.caller_stack._push_frame()
-    try:
-        _import_ns = {}
-        _mako_get_namespace(context, 'notes')._populate(_import_ns, ['*'])
-        _mako_get_namespace(context, 'feeds_translations')._populate(_import_ns, ['*'])
-        feeds_translations = _mako_get_namespace(context, 'feeds_translations')
-        __M_writer = context.writer()
-        __M_writer('\n    ')
-        __M_writer(str(feeds_translations.head()))
-        __M_writer('\n')
-        return ''
-    finally:
-        context.caller_stack._pop_frame()
-
-
-def render_html_navigation_links(context):
-    __M_caller = context.caller_stack._push_frame()
-    try:
-        _import_ns = {}
-        _mako_get_namespace(context, 'notes')._populate(_import_ns, ['*'])
-        _mako_get_namespace(context, 'feeds_translations')._populate(_import_ns, ['*'])
-        isinstance = _import_ns.get('isinstance', context.get('isinstance', UNDEFINED))
-        navigation_links = _import_ns.get('navigation_links', context.get('navigation_links', UNDEFINED))
-        permalink = _import_ns.get('permalink', context.get('permalink', UNDEFINED))
-        rel_link = _import_ns.get('rel_link', context.get('rel_link', UNDEFINED))
-        lang = _import_ns.get('lang', context.get('lang', UNDEFINED))
-        messages = _import_ns.get('messages', context.get('messages', UNDEFINED))
-        tuple = _import_ns.get('tuple', context.get('tuple', UNDEFINED))
-        __M_writer = context.writer()
-        __M_writer('\n')
-        for url, text in navigation_links[lang]:
-            if isinstance(url, tuple):
-                __M_writer('            <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">')
-                __M_writer(str(text))
-                __M_writer(' <b class="caret"></b></a>\n            <ul class="dropdown-menu">\n')
-                for suburl, text in url:
-                    if rel_link(permalink, suburl) == "#":
-                        __M_writer('                    <li class="active"><a href="')
-                        __M_writer(str(permalink))
-                        __M_writer('">')
-                        __M_writer(str(text))
-                        __M_writer(' <span class="sr-only">')
-                        __M_writer(str(messages("(active)", lang)))
-                        __M_writer('</span></a>\n')
-                    else:
-                        __M_writer('                    <li><a href="')
-                        __M_writer(str(suburl))
-                        __M_writer('">')
-                        __M_writer(str(text))
-                        __M_writer('</a>\n')
-                __M_writer('            </ul>\n')
-            else:
-                if rel_link(permalink, url) == "#":
-                    __M_writer('                <li class="active"><a href="')
-                    __M_writer(str(permalink))
-                    __M_writer('">')
-                    __M_writer(str(text))
-                    __M_writer(' <span class="sr-only">')
-                    __M_writer(str(messages("(active)", lang)))
-                    __M_writer('</span></a>\n')
-                else:
-                    __M_writer('                <li><a href="')
-                    __M_writer(str(url))
-                    __M_writer('">')
-                    __M_writer(str(text))
-                    __M_writer('</a>\n')
-        return ''
-    finally:
-        context.caller_stack._pop_frame()
-
-
 def render_html_headstart(context):
     __M_caller = context.caller_stack._push_frame()
     try:
         _import_ns = {}
         _mako_get_namespace(context, 'notes')._populate(_import_ns, ['*'])
         _mako_get_namespace(context, 'feeds_translations')._populate(_import_ns, ['*'])
-        extra_head_data = _import_ns.get('extra_head_data', context.get('extra_head_data', UNDEFINED))
-        use_base_tag = _import_ns.get('use_base_tag', context.get('use_base_tag', UNDEFINED))
-        meta_generator_tag = _import_ns.get('meta_generator_tag', context.get('meta_generator_tag', UNDEFINED))
-        blog_title = _import_ns.get('blog_title', context.get('blog_title', UNDEFINED))
+        lang = _import_ns.get('lang', context.get('lang', UNDEFINED))
+        use_open_graph = _import_ns.get('use_open_graph', context.get('use_open_graph', UNDEFINED))
         twitter_card = _import_ns.get('twitter_card', context.get('twitter_card', UNDEFINED))
+        comment_system_id = _import_ns.get('comment_system_id', context.get('comment_system_id', UNDEFINED))
         nextlink = _import_ns.get('nextlink', context.get('nextlink', UNDEFINED))
+        title = _import_ns.get('title', context.get('title', UNDEFINED))
+        comment_system = _import_ns.get('comment_system', context.get('comment_system', UNDEFINED))
+        is_rtl = _import_ns.get('is_rtl', context.get('is_rtl', UNDEFINED))
+        url_type = _import_ns.get('url_type', context.get('url_type', UNDEFINED))
+        theme_color = _import_ns.get('theme_color', context.get('theme_color', UNDEFINED))
+        description = _import_ns.get('description', context.get('description', UNDEFINED))
+        meta_generator_tag = _import_ns.get('meta_generator_tag', context.get('meta_generator_tag', UNDEFINED))
+        use_base_tag = _import_ns.get('use_base_tag', context.get('use_base_tag', UNDEFINED))
         def html_stylesheets():
             return render_html_stylesheets(context)
-        url_type = _import_ns.get('url_type', context.get('url_type', UNDEFINED))
-        comment_system_id = _import_ns.get('comment_system_id', context.get('comment_system_id', UNDEFINED))
+        extra_head_data = _import_ns.get('extra_head_data', context.get('extra_head_data', UNDEFINED))
+        prevlink = _import_ns.get('prevlink', context.get('prevlink', UNDEFINED))
+        use_cdn = _import_ns.get('use_cdn', context.get('use_cdn', UNDEFINED))
+        favicons = _import_ns.get('favicons', context.get('favicons', UNDEFINED))
+        permalink = _import_ns.get('permalink', context.get('permalink', UNDEFINED))
+        blog_title = _import_ns.get('blog_title', context.get('blog_title', UNDEFINED))
         feeds_translations = _mako_get_namespace(context, 'feeds_translations')
         url_replacer = _import_ns.get('url_replacer', context.get('url_replacer', UNDEFINED))
-        prevlink = _import_ns.get('prevlink', context.get('prevlink', UNDEFINED))
-        permalink = _import_ns.get('permalink', context.get('permalink', UNDEFINED))
-        use_cdn = _import_ns.get('use_cdn', context.get('use_cdn', UNDEFINED))
-        lang = _import_ns.get('lang', context.get('lang', UNDEFINED))
         abs_link = _import_ns.get('abs_link', context.get('abs_link', UNDEFINED))
-        favicons = _import_ns.get('favicons', context.get('favicons', UNDEFINED))
-        is_rtl = _import_ns.get('is_rtl', context.get('is_rtl', UNDEFINED))
-        title = _import_ns.get('title', context.get('title', UNDEFINED))
-        description = _import_ns.get('description', context.get('description', UNDEFINED))
-        theme_color = _import_ns.get('theme_color', context.get('theme_color', UNDEFINED))
-        comment_system = _import_ns.get('comment_system', context.get('comment_system', UNDEFINED))
-        use_open_graph = _import_ns.get('use_open_graph', context.get('use_open_graph', UNDEFINED))
         __M_writer = context.writer()
         __M_writer('\n<!DOCTYPE html>\n<html\n')
         if use_open_graph or (twitter_card and twitter_card['use_twitter_cards']) or (comment_system == 'facebook'):
@@ -320,12 +169,12 @@ def render_html_translations(context):
         _import_ns = {}
         _mako_get_namespace(context, 'notes')._populate(_import_ns, ['*'])
         _mako_get_namespace(context, 'feeds_translations')._populate(_import_ns, ['*'])
-        translations = _import_ns.get('translations', context.get('translations', UNDEFINED))
-        _link = _import_ns.get('_link', context.get('_link', UNDEFINED))
-        sorted = _import_ns.get('sorted', context.get('sorted', UNDEFINED))
         lang = _import_ns.get('lang', context.get('lang', UNDEFINED))
-        abs_link = _import_ns.get('abs_link', context.get('abs_link', UNDEFINED))
+        sorted = _import_ns.get('sorted', context.get('sorted', UNDEFINED))
         messages = _import_ns.get('messages', context.get('messages', UNDEFINED))
+        _link = _import_ns.get('_link', context.get('_link', UNDEFINED))
+        translations = _import_ns.get('translations', context.get('translations', UNDEFINED))
+        abs_link = _import_ns.get('abs_link', context.get('abs_link', UNDEFINED))
         __M_writer = context.writer()
         __M_writer('\n')
         for langname in sorted(translations):
@@ -342,8 +191,159 @@ def render_html_translations(context):
         context.caller_stack._pop_frame()
 
 
+def render_html_stylesheets(context):
+    __M_caller = context.caller_stack._push_frame()
+    try:
+        _import_ns = {}
+        _mako_get_namespace(context, 'notes')._populate(_import_ns, ['*'])
+        _mako_get_namespace(context, 'feeds_translations')._populate(_import_ns, ['*'])
+        notes = _mako_get_namespace(context, 'notes')
+        annotations = _import_ns.get('annotations', context.get('annotations', UNDEFINED))
+        post = _import_ns.get('post', context.get('post', UNDEFINED))
+        use_bundles = _import_ns.get('use_bundles', context.get('use_bundles', UNDEFINED))
+        has_custom_css = _import_ns.get('has_custom_css', context.get('has_custom_css', UNDEFINED))
+        use_cdn = _import_ns.get('use_cdn', context.get('use_cdn', UNDEFINED))
+        needs_ipython_css = _import_ns.get('needs_ipython_css', context.get('needs_ipython_css', UNDEFINED))
+        __M_writer = context.writer()
+        __M_writer('\n')
+        if use_bundles:
+            if use_cdn:
+                __M_writer('            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">\n            <link href="/assets/css/all.css" rel="stylesheet" type="text/css">\n')
+            else:
+                __M_writer('            <link href="/assets/css/all-nocdn.css" rel="stylesheet" type="text/css">\n')
+        else:
+            if use_cdn:
+                __M_writer('            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">\n')
+            else:
+                __M_writer('            <link href="/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">\n')
+            __M_writer('        <link href="/assets/css/html4css1.css" rel="stylesheet" type="text/css">\n        <link href="/assets/css/nikola_rst.css" rel="stylesheet" type="text/css">\n        <link href="/assets/css/code.css" rel="stylesheet" type="text/css">\n        <link href="/assets/css/colorbox.css" rel="stylesheet" type="text/css">\n        <link href="/assets/css/theme.css" rel="stylesheet" type="text/css">\n')
+            if has_custom_css:
+                __M_writer('            <link href="/assets/css/custom.css" rel="stylesheet" type="text/css">\n')
+        if needs_ipython_css:
+            __M_writer('        <link href="/assets/css/ipython.min.css" rel="stylesheet" type="text/css">\n        <link href="/assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">\n')
+        if annotations and post and not post.meta('noannotations'):
+            __M_writer('        ')
+            __M_writer(str(notes.css()))
+            __M_writer('\n')
+        elif not annotations and post and post.meta('annotations'):
+            __M_writer('        ')
+            __M_writer(str(notes.css()))
+            __M_writer('\n')
+        return ''
+    finally:
+        context.caller_stack._pop_frame()
+
+
+def render_late_load_js(context):
+    __M_caller = context.caller_stack._push_frame()
+    try:
+        _import_ns = {}
+        _mako_get_namespace(context, 'notes')._populate(_import_ns, ['*'])
+        _mako_get_namespace(context, 'feeds_translations')._populate(_import_ns, ['*'])
+        colorbox_locales = _import_ns.get('colorbox_locales', context.get('colorbox_locales', UNDEFINED))
+        use_bundles = _import_ns.get('use_bundles', context.get('use_bundles', UNDEFINED))
+        lang = _import_ns.get('lang', context.get('lang', UNDEFINED))
+        social_buttons_code = _import_ns.get('social_buttons_code', context.get('social_buttons_code', UNDEFINED))
+        use_cdn = _import_ns.get('use_cdn', context.get('use_cdn', UNDEFINED))
+        __M_writer = context.writer()
+        __M_writer('\n')
+        if use_bundles:
+            if use_cdn:
+                __M_writer('            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.3/jquery.min.js"></script>\n            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>\n\n            <script src="/assets/js/all.js"></script>\n')
+            else:
+                __M_writer('            <script src="/assets/js/all-nocdn.js"></script>\n')
+        else:
+            if use_cdn:
+                __M_writer('            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.3/jquery.min.js"></script>\n            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>\n')
+            else:
+                __M_writer('            <script src="/assets/js/jquery.min.js"></script>\n            <script src="/assets/js/bootstrap.min.js"></script>\n            <script src="/assets/js/moment-with-locales.min.js"></script>\n            <script src="/assets/js/fancydates.js"></script>\n')
+            __M_writer('        <script src="/assets/js/jquery.colorbox-min.js"></script>\n')
+        if colorbox_locales[lang]:
+            __M_writer('        <script src="/assets/js/colorbox-i18n/jquery.colorbox-')
+            __M_writer(str(colorbox_locales[lang]))
+            __M_writer('.js"></script>\n')
+        __M_writer('    ')
+        __M_writer(str(social_buttons_code))
+        __M_writer('\n')
+        return ''
+    finally:
+        context.caller_stack._pop_frame()
+
+
+def render_html_feedlinks(context):
+    __M_caller = context.caller_stack._push_frame()
+    try:
+        _import_ns = {}
+        _mako_get_namespace(context, 'notes')._populate(_import_ns, ['*'])
+        _mako_get_namespace(context, 'feeds_translations')._populate(_import_ns, ['*'])
+        feeds_translations = _mako_get_namespace(context, 'feeds_translations')
+        __M_writer = context.writer()
+        __M_writer('\n    ')
+        __M_writer(str(feeds_translations.head()))
+        __M_writer('\n')
+        return ''
+    finally:
+        context.caller_stack._pop_frame()
+
+
+def render_html_navigation_links(context):
+    __M_caller = context.caller_stack._push_frame()
+    try:
+        _import_ns = {}
+        _mako_get_namespace(context, 'notes')._populate(_import_ns, ['*'])
+        _mako_get_namespace(context, 'feeds_translations')._populate(_import_ns, ['*'])
+        lang = _import_ns.get('lang', context.get('lang', UNDEFINED))
+        messages = _import_ns.get('messages', context.get('messages', UNDEFINED))
+        isinstance = _import_ns.get('isinstance', context.get('isinstance', UNDEFINED))
+        permalink = _import_ns.get('permalink', context.get('permalink', UNDEFINED))
+        navigation_links = _import_ns.get('navigation_links', context.get('navigation_links', UNDEFINED))
+        tuple = _import_ns.get('tuple', context.get('tuple', UNDEFINED))
+        rel_link = _import_ns.get('rel_link', context.get('rel_link', UNDEFINED))
+        __M_writer = context.writer()
+        __M_writer('\n')
+        for url, text in navigation_links[lang]:
+            if isinstance(url, tuple):
+                __M_writer('            <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">')
+                __M_writer(str(text))
+                __M_writer(' <b class="caret"></b></a>\n            <ul class="dropdown-menu">\n')
+                for suburl, text in url:
+                    if rel_link(permalink, suburl) == "#":
+                        __M_writer('                    <li class="active"><a href="')
+                        __M_writer(str(permalink))
+                        __M_writer('">')
+                        __M_writer(str(text))
+                        __M_writer(' <span class="sr-only">')
+                        __M_writer(str(messages("(active)", lang)))
+                        __M_writer('</span></a>\n')
+                    else:
+                        __M_writer('                    <li><a href="')
+                        __M_writer(str(suburl))
+                        __M_writer('">')
+                        __M_writer(str(text))
+                        __M_writer('</a>\n')
+                __M_writer('            </ul>\n')
+            else:
+                if rel_link(permalink, url) == "#":
+                    __M_writer('                <li class="active"><a href="')
+                    __M_writer(str(permalink))
+                    __M_writer('">')
+                    __M_writer(str(text))
+                    __M_writer(' <span class="sr-only">')
+                    __M_writer(str(messages("(active)", lang)))
+                    __M_writer('</span></a>\n')
+                else:
+                    __M_writer('                <li><a href="')
+                    __M_writer(str(url))
+                    __M_writer('">')
+                    __M_writer(str(text))
+                    __M_writer('</a>\n')
+        return ''
+    finally:
+        context.caller_stack._pop_frame()
+
+
 """
 __M_BEGIN_METADATA
-{"uri": "base_helper.tmpl", "filename": "/home/nocaoper/docs/pyEnv/999_pyEnvNicolae/_env/lib/python3.5/site-packages/nikola/data/themes/bootstrap3/templates/base_helper.tmpl", "source_encoding": "utf-8", "line_map": {"23": 3, "26": 4, "29": 0, "37": 2, "38": 3, "39": 4, "40": 75, "41": 103, "42": 138, "43": 161, "44": 165, "45": 173, "51": 106, "65": 106, "66": 107, "67": 108, "68": 109, "69": 111, "70": 112, "71": 114, "72": 115, "73": 116, "74": 117, "75": 118, "76": 120, "77": 125, "78": 126, "79": 129, "80": 130, "81": 133, "82": 134, "83": 134, "84": 134, "85": 135, "86": 136, "87": 136, "88": 136, "94": 77, "106": 77, "107": 78, "108": 79, "109": 80, "110": 84, "111": 85, "112": 87, "113": 88, "114": 89, "115": 91, "116": 92, "117": 97, "118": 99, "119": 100, "120": 100, "121": 100, "122": 102, "123": 102, "124": 102, "130": 163, "138": 163, "139": 164, "140": 164, "146": 140, "160": 140, "161": 141, "162": 142, "163": 143, "164": 143, "165": 143, "166": 145, "167": 146, "168": 147, "169": 147, "170": 147, "171": 147, "172": 147, "173": 147, "174": 147, "175": 148, "176": 149, "177": 149, "178": 149, "179": 149, "180": 149, "181": 152, "182": 153, "183": 154, "184": 155, "185": 155, "186": 155, "187": 155, "188": 155, "189": 155, "190": 155, "191": 156, "192": 157, "193": 157, "194": 157, "195": 157, "196": 157, "202": 5, "233": 5, "234": 9, "235": 10, "236": 11, "237": 12, "238": 14, "239": 15, "240": 17, "241": 18, "242": 20, "243": 23, "244": 24, "245": 27, "246": 27, "247": 27, "248": 30, "249": 31, "250": 31, "251": 31, "252": 33, "253": 34, "254": 34, "255": 34, "256": 36, "257": 37, "258": 38, "259": 38, "260": 38, "261": 39, "262": 40, "263": 40, "264": 40, "265": 40, "266": 40, "267": 42, "268": 43, "269": 43, "270": 44, "271": 44, "272": 45, "273": 46, "274": 48, "275": 48, "276": 48, "277": 49, "278": 49, "279": 51, "280": 52, "281": 53, "282": 53, "283": 53, "284": 53, "285": 53, "286": 53, "287": 53, "288": 56, "289": 57, "290": 58, "291": 58, "292": 58, "293": 60, "294": 61, "295": 62, "296": 62, "297": 62, "298": 64, "299": 65, "300": 65, "301": 65, "302": 67, "303": 68, "304": 69, "305": 70, "306": 71, "307": 71, "308": 71, "309": 73, "310": 74, "311": 74, "317": 167, "330": 167, "331": 168, "332": 169, "333": 170, "334": 170, "335": 170, "336": 170, "337": 170, "338": 170, "339": 170, "345": 339}}
+{"filename": "/home/nocaoper/docs/pyEnv/999_pyEnvNicolae/_env/lib/python3.5/site-packages/nikola/data/themes/bootstrap3/templates/base_helper.tmpl", "source_encoding": "utf-8", "uri": "base_helper.tmpl", "line_map": {"23": 3, "26": 4, "29": 0, "37": 2, "38": 3, "39": 4, "40": 75, "41": 103, "42": 138, "43": 161, "44": 165, "45": 173, "51": 5, "82": 5, "83": 9, "84": 10, "85": 11, "86": 12, "87": 14, "88": 15, "89": 17, "90": 18, "91": 20, "92": 23, "93": 24, "94": 27, "95": 27, "96": 27, "97": 30, "98": 31, "99": 31, "100": 31, "101": 33, "102": 34, "103": 34, "104": 34, "105": 36, "106": 37, "107": 38, "108": 38, "109": 38, "110": 39, "111": 40, "112": 40, "113": 40, "114": 40, "115": 40, "116": 42, "117": 43, "118": 43, "119": 44, "120": 44, "121": 45, "122": 46, "123": 48, "124": 48, "125": 48, "126": 49, "127": 49, "128": 51, "129": 52, "130": 53, "131": 53, "132": 53, "133": 53, "134": 53, "135": 53, "136": 53, "137": 56, "138": 57, "139": 58, "140": 58, "141": 58, "142": 60, "143": 61, "144": 62, "145": 62, "146": 62, "147": 64, "148": 65, "149": 65, "150": 65, "151": 67, "152": 68, "153": 69, "154": 70, "155": 71, "156": 71, "157": 71, "158": 73, "159": 74, "160": 74, "166": 167, "179": 167, "180": 168, "181": 169, "182": 170, "183": 170, "184": 170, "185": 170, "186": 170, "187": 170, "188": 170, "194": 106, "208": 106, "209": 107, "210": 108, "211": 109, "212": 111, "213": 112, "214": 114, "215": 115, "216": 116, "217": 117, "218": 118, "219": 120, "220": 125, "221": 126, "222": 129, "223": 130, "224": 133, "225": 134, "226": 134, "227": 134, "228": 135, "229": 136, "230": 136, "231": 136, "237": 77, "249": 77, "250": 78, "251": 79, "252": 80, "253": 84, "254": 85, "255": 87, "256": 88, "257": 89, "258": 91, "259": 92, "260": 97, "261": 99, "262": 100, "263": 100, "264": 100, "265": 102, "266": 102, "267": 102, "273": 163, "281": 163, "282": 164, "283": 164, "289": 140, "303": 140, "304": 141, "305": 142, "306": 143, "307": 143, "308": 143, "309": 145, "310": 146, "311": 147, "312": 147, "313": 147, "314": 147, "315": 147, "316": 147, "317": 147, "318": 148, "319": 149, "320": 149, "321": 149, "322": 149, "323": 149, "324": 152, "325": 153, "326": 154, "327": 155, "328": 155, "329": 155, "330": 155, "331": 155, "332": 155, "333": 155, "334": 156, "335": 157, "336": 157, "337": 157, "338": 157, "339": 157, "345": 339}}
 __M_END_METADATA
 """

@@ -5,12 +5,12 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1515732972.7944343
+_modified_time = 1515733145.9615307
 _enable_loop = True
 _template_filename = '/home/nocaoper/docs/pyEnv/999_pyEnvNicolae/_env/lib/python3.5/site-packages/nikola/data/themes/base/templates/math_helper.tmpl'
 _template_uri = 'math_helper.tmpl'
 _source_encoding = 'ascii'
-_exports = ['math_styles_ifposts', 'math_scripts', 'math_styles', 'math_styles_ifpost', 'math_scripts_ifpost', 'math_scripts_ifposts']
+_exports = ['math_scripts_ifposts', 'math_styles_ifpost', 'math_styles_ifposts', 'math_scripts_ifpost', 'math_scripts', 'math_styles']
 
 
 def render_body(context,**pageargs):
@@ -29,12 +29,45 @@ def render_body(context,**pageargs):
         context.caller_stack._pop_frame()
 
 
+def render_math_scripts_ifposts(context,posts):
+    __M_caller = context.caller_stack._push_frame()
+    try:
+        def math_scripts():
+            return render_math_scripts(context)
+        any = context.get('any', UNDEFINED)
+        __M_writer = context.writer()
+        __M_writer('\n')
+        if any(post.is_mathjax for post in posts):
+            __M_writer('        ')
+            __M_writer(str(math_scripts()))
+            __M_writer('\n')
+        return ''
+    finally:
+        context.caller_stack._pop_frame()
+
+
+def render_math_styles_ifpost(context,post):
+    __M_caller = context.caller_stack._push_frame()
+    try:
+        def math_styles():
+            return render_math_styles(context)
+        __M_writer = context.writer()
+        __M_writer('\n')
+        if post.is_mathjax:
+            __M_writer('        ')
+            __M_writer(str(math_styles()))
+            __M_writer('\n')
+        return ''
+    finally:
+        context.caller_stack._pop_frame()
+
+
 def render_math_styles_ifposts(context,posts):
     __M_caller = context.caller_stack._push_frame()
     try:
-        any = context.get('any', UNDEFINED)
         def math_styles():
             return render_math_styles(context)
+        any = context.get('any', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\n')
         if any(post.is_mathjax for post in posts):
@@ -46,12 +79,28 @@ def render_math_styles_ifposts(context,posts):
         context.caller_stack._pop_frame()
 
 
+def render_math_scripts_ifpost(context,post):
+    __M_caller = context.caller_stack._push_frame()
+    try:
+        def math_scripts():
+            return render_math_scripts(context)
+        __M_writer = context.writer()
+        __M_writer('\n')
+        if post.is_mathjax:
+            __M_writer('        ')
+            __M_writer(str(math_scripts()))
+            __M_writer('\n')
+        return ''
+    finally:
+        context.caller_stack._pop_frame()
+
+
 def render_math_scripts(context):
     __M_caller = context.caller_stack._push_frame()
     try:
-        mathjax_config = context.get('mathjax_config', UNDEFINED)
-        use_katex = context.get('use_katex', UNDEFINED)
         katex_auto_render = context.get('katex_auto_render', UNDEFINED)
+        use_katex = context.get('use_katex', UNDEFINED)
+        mathjax_config = context.get('mathjax_config', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\n')
         if use_katex:
@@ -88,57 +137,8 @@ def render_math_styles(context):
         context.caller_stack._pop_frame()
 
 
-def render_math_styles_ifpost(context,post):
-    __M_caller = context.caller_stack._push_frame()
-    try:
-        def math_styles():
-            return render_math_styles(context)
-        __M_writer = context.writer()
-        __M_writer('\n')
-        if post.is_mathjax:
-            __M_writer('        ')
-            __M_writer(str(math_styles()))
-            __M_writer('\n')
-        return ''
-    finally:
-        context.caller_stack._pop_frame()
-
-
-def render_math_scripts_ifpost(context,post):
-    __M_caller = context.caller_stack._push_frame()
-    try:
-        def math_scripts():
-            return render_math_scripts(context)
-        __M_writer = context.writer()
-        __M_writer('\n')
-        if post.is_mathjax:
-            __M_writer('        ')
-            __M_writer(str(math_scripts()))
-            __M_writer('\n')
-        return ''
-    finally:
-        context.caller_stack._pop_frame()
-
-
-def render_math_scripts_ifposts(context,posts):
-    __M_caller = context.caller_stack._push_frame()
-    try:
-        any = context.get('any', UNDEFINED)
-        def math_scripts():
-            return render_math_scripts(context)
-        __M_writer = context.writer()
-        __M_writer('\n')
-        if any(post.is_mathjax for post in posts):
-            __M_writer('        ')
-            __M_writer(str(math_scripts()))
-            __M_writer('\n')
-        return ''
-    finally:
-        context.caller_stack._pop_frame()
-
-
 """
 __M_BEGIN_METADATA
-{"uri": "math_helper.tmpl", "filename": "/home/nocaoper/docs/pyEnv/999_pyEnvNicolae/_env/lib/python3.5/site-packages/nikola/data/themes/base/templates/math_helper.tmpl", "source_encoding": "ascii", "line_map": {"130": 44, "131": 45, "132": 46, "133": 46, "134": 46, "140": 134, "16": 0, "21": 30, "22": 36, "23": 42, "24": 48, "25": 54, "26": 60, "32": 56, "39": 56, "40": 57, "41": 58, "42": 58, "43": 58, "49": 2, "56": 2, "57": 3, "58": 4, "59": 6, "60": 7, "61": 10, "62": 10, "63": 14, "64": 15, "65": 19, "66": 21, "67": 22, "68": 23, "69": 23, "70": 23, "71": 24, "72": 25, "78": 32, "83": 32, "84": 33, "85": 34, "91": 50, "97": 50, "98": 51, "99": 52, "100": 52, "101": 52, "107": 38, "113": 38, "114": 39, "115": 40, "116": 40, "117": 40, "123": 44}}
+{"filename": "/home/nocaoper/docs/pyEnv/999_pyEnvNicolae/_env/lib/python3.5/site-packages/nikola/data/themes/base/templates/math_helper.tmpl", "source_encoding": "ascii", "uri": "math_helper.tmpl", "line_map": {"132": 32, "133": 33, "134": 34, "140": 134, "16": 0, "21": 30, "22": 36, "23": 42, "24": 48, "25": 54, "26": 60, "32": 44, "39": 44, "40": 45, "41": 46, "42": 46, "43": 46, "49": 50, "55": 50, "56": 51, "57": 52, "58": 52, "59": 52, "65": 56, "72": 56, "73": 57, "74": 58, "75": 58, "76": 58, "82": 38, "88": 38, "89": 39, "90": 40, "91": 40, "92": 40, "98": 2, "105": 2, "106": 3, "107": 4, "108": 6, "109": 7, "110": 10, "111": 10, "112": 14, "113": 15, "114": 19, "115": 21, "116": 22, "117": 23, "118": 23, "119": 23, "120": 24, "121": 25, "127": 32}}
 __M_END_METADATA
 """

@@ -306,39 +306,19 @@ compilers and add them into the conf.py file. Don't forget to commit.
 <p>
 to check all the locales configured on ubuntu
 </p>
-
-<ul class="org-ul">
-<li>$ sudo locale-gen "en<sub>US</sub>.UTF-8"
-</li>
-<li>$ sudo dpkg-reconfigure locales
-<ul class="org-ul">
-<li>From the list I search for en<sub>US</sub>.UTF-8, which happens to be number 149
-</li>
-<li>I type 149 and press enter
-</li>
-<li>The command prompt asks me to choose between
-<ul class="org-ul">
-<li>None
-</li>
-<li>C.UTF-8
-</li>
-<li>en<sub>US</sub>.UTF-8
-</li>
-</ul>
-</li>
-<li>I choose C.UTF8
-</li>
-<li>I rerun the command
-<ul class="org-ul">
-<li>nikola new<sub>post</sub> 999<sub>nikola</sub><sub>install</sub>.org
-</li>
-<li>it works!
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
+<div class="highlight"><pre><span></span>- $ sudo locale-gen "en_US.UTF-8"
+- $ sudo dpkg-reconfigure locales
+  - From the list I search for en_US.UTF-8, which happens to be number 149
+  - I type 149 and press enter
+  - The command prompt asks me to choose between
+    - None
+    - C.UTF-8
+    - en_US.UTF-8
+  - I choose C.UTF8
+  - I rerun the command
+    - nikola new_post 999_nikola_install.org
+    - it works!
+</pre></div>
 </div>
 </div>
 </div>
