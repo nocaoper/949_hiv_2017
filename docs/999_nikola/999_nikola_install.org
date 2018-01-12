@@ -1,9 +1,79 @@
+
+
+
 * First post on Nikola
 Thanks and comments on how to install static website generator. [[https://streakycobra.github.io/posts/blogging-in-org-mode-with-nikola/][Blogging in Org Mode With Nikola]]
 
-* Modify Python File for org Mode
+* Steps for installation
 
-when this was mentionned
+** Add Makefile
+The difference between this and the tutorial is the fact that I've
+used python3 -m venv instead of pyenv
+#+BEGIN_SRC sh
+  ENVIRONMENT := _env/
+
+  default: help
+
+  $(ENVIRONMENT):
+      python3 -m venv "$@"
+
+  clean:
+      nikola clean
+      rm -rf $(ENVIRONMENT)
+
+  setup:
+      @echo "make $(ENVIRONMENT);"
+      @echo "source $(ENVIRONMENT)bin/activate;"
+      @echo "pip install --upgrade pip 'Nikola[extras]';"
+
+  help:
+      @echo "To setup Nikola environment, please use 'eval \$$(make setup)'."
+#+END_SRC
+
+** Install with the bash script
+type
+#+BEGIN_SRC sh
+  $ eval $(make setup)
+#+END_SRC
+
+** Create a repo github
+I added unlicense (as the license)
+ 
+** Create nikola dir
+Create nikola directory and then move the files into the upper
+repository
+
+- initialize nikola website
+$ nikola init website mv website
+- move its files into the upper directory (cleaner)
+$ mv website/* .
+- remove old empty folder
+$ rmdir my_first_website
+
+** Install orgmode into nikola
+$ nikola plugin -i orgmode
+
+** Build webpage
+- option 1
+  - nicola build
+  - //The port can be choosen freely
+    - nicola server -p 35729
+- option 2 (build and serve with autoupdate)
+  - nicola auto -p 35729
+
+** Save all files into github
+In here I recomment to use manual push
+- check new files
+$ git status
+- add git files
+$ git add <file or folder>
+- commit
+$ git commit -am "message"
+- push
+git push
+
+* Modify Python File for org Mode
+ when this was mentionned
 
 #+BEGIN_SRC python
 # Add the orgmode compiler to your COMPILERS dict.
