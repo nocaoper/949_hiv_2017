@@ -1,0 +1,274 @@
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1">First post on Nikola</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Thanks and comments on how to install static website generator. <a href="https://streakycobra.github.io/posts/blogging-in-org-mode-with-nikola/">Blogging in Org Mode With Nikola</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2">Steps for installation</h2>
+<div class="outline-text-2" id="text-2">
+</div><div id="outline-container-sec-2-1" class="outline-3">
+<h3 id="sec-2-1">Add Makefile</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+The difference between this and the tutorial is the fact that I've
+used python3 -m venv instead of pyenv
+</p>
+<div class="highlight"><pre><span></span>ENVIRONMENT :<span class="o">=</span> _env/
+
+default: <span class="nb">help</span>
+
+<span class="k">$(</span>ENVIRONMENT<span class="k">)</span>:
+    python3 -m venv <span class="s2">&quot;</span><span class="nv">$@</span><span class="s2">&quot;</span>
+
+clean:
+    nikola clean
+    rm -rf <span class="k">$(</span>ENVIRONMENT<span class="k">)</span>
+
+setup:
+    @echo <span class="s2">&quot;make </span><span class="k">$(</span>ENVIRONMENT<span class="k">)</span><span class="s2">;&quot;</span>
+    @echo <span class="s2">&quot;source </span><span class="k">$(</span>ENVIRONMENT<span class="k">)</span><span class="s2">bin/activate;&quot;</span>
+    @echo <span class="s2">&quot;pip install --upgrade pip &#39;Nikola[extras]&#39;;&quot;</span>
+
+help:
+    @echo <span class="s2">&quot;To setup Nikola environment, please use &#39;eval \$</span><span class="k">$(</span>make setup<span class="k">)</span><span class="s2">&#39;.&quot;</span>
+</pre></div>
+</div>
+</div>
+
+<div id="outline-container-sec-2-2" class="outline-3">
+<h3 id="sec-2-2">Install with the bash script</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+type
+</p>
+<div class="highlight"><pre><span></span>$ <span class="nb">eval</span> <span class="k">$(</span>make setup<span class="k">)</span>
+</pre></div>
+</div>
+</div>
+
+<div id="outline-container-sec-2-3" class="outline-3">
+<h3 id="sec-2-3">Create a repo github</h3>
+<div class="outline-text-3" id="text-2-3">
+<p>
+I added unlicense (as the license)
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-2-4" class="outline-3">
+<h3 id="sec-2-4">Create nikola dir</h3>
+<div class="outline-text-3" id="text-2-4">
+<p>
+Create nikola directory and then move the files into the upper
+repository
+</p>
+
+<ul class="org-ul">
+<li>initialize nikola website
+</li>
+</ul>
+<p>
+$ nikola init website mv website
+</p>
+<ul class="org-ul">
+<li>move its files into the upper directory (cleaner)
+</li>
+</ul>
+<p>
+$ mv website/* .
+</p>
+<ul class="org-ul">
+<li>remove old empty folder
+</li>
+</ul>
+<p>
+$ rmdir my<sub>first</sub><sub>website</sub>
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-2-5" class="outline-3">
+<h3 id="sec-2-5">Install orgmode into nikola</h3>
+<div class="outline-text-3" id="text-2-5">
+<p>
+$ nikola plugin -i orgmode
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-2-6" class="outline-3">
+<h3 id="sec-2-6">Build webpage</h3>
+<div class="outline-text-3" id="text-2-6">
+<ul class="org-ul">
+<li>option 1
+<ul class="org-ul">
+<li>nicola build
+</li>
+<li>//The port can be choosen freely
+<ul class="org-ul">
+<li>nicola server -p 35729
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>option 2 (build and serve with autoupdate)
+<ul class="org-ul">
+<li>nicola auto -p 35729
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-2-7" class="outline-3">
+<h3 id="sec-2-7">Save all files into github</h3>
+<div class="outline-text-3" id="text-2-7">
+<p>
+In here I recomment to use manual push
+</p>
+<ul class="org-ul">
+<li>check new files
+</li>
+</ul>
+<p>
+$ git status
+</p>
+<ul class="org-ul">
+<li>add git files
+</li>
+</ul>
+<p>
+$ git add &lt;file or folder&gt;
+</p>
+<ul class="org-ul">
+<li>commit
+</li>
+</ul>
+<p>
+$ git commit -am "message"
+</p>
+<ul class="org-ul">
+<li>push
+</li>
+</ul>
+<p>
+git push
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3">Modify Python File for org Mode</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+when this was mentionned
+</p>
+
+<div class="highlight"><pre><span></span><span class="c1"># Add the orgmode compiler to your COMPILERS dict.</span>
+<span class="n">COMPILERS</span><span class="p">[</span><span class="s2">&quot;orgmode&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;.org&#39;</span><span class="p">,)</span>
+
+<span class="c1"># Add org files to your POSTS, PAGES</span>
+<span class="n">POSTS</span> <span class="o">=</span> <span class="n">POSTS</span> <span class="o">+</span> <span class="p">((</span><span class="s2">&quot;posts/*.org&quot;</span><span class="p">,</span> <span class="s2">&quot;posts&quot;</span><span class="p">,</span> <span class="s2">&quot;post.tmpl&quot;</span><span class="p">),)</span>
+<span class="n">PAGES</span> <span class="o">=</span> <span class="n">PAGES</span> <span class="o">+</span> <span class="p">((</span><span class="s2">&quot;stories/*.org&quot;</span><span class="p">,</span> <span class="s2">&quot;stories&quot;</span><span class="p">,</span> <span class="s2">&quot;story.tmpl&quot;</span><span class="p">),)</span>
+</pre></div>
+
+<p>
+I thought that it was about things in the emacs file. Finally it was
+about things in the conf.py file. So search the posts and search the
+compilers and add them into the conf.py file. Don't forget to commit.
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-4" class="outline-2">
+<h2 id="sec-4">Error about system language</h2>
+<div class="outline-text-2" id="text-4">
+</div><div id="outline-container-sec-4-1" class="outline-3">
+<h3 id="sec-4-1">Error happened when this command :</h3>
+<div class="outline-text-3" id="text-4-1">
+<div class="highlight"><pre><span></span>nikola new_post 999_nikola_install.org
+</pre></div>
+</div>
+</div>
+
+<div id="outline-container-sec-4-2" class="outline-3">
+<h3 id="sec-4-2">Error picture</h3>
+<div class="outline-text-3" id="text-4-2">
+
+<div class="figure">
+<p><img src="https://github.com/nocaoper/949_hiv_2017/raw/master/docs/999_nikola/pictureNoLocaleConfigured.png" alt="pictureNoLocaleConfigured.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-4-3" class="outline-3">
+<h3 id="sec-4-3">solution: <a href="https://askubuntu.com/questions/162391/how-do-i-fix-my-locale-issue">Article set locale (askubuntu.com)</a></h3>
+<div class="outline-text-3" id="text-4-3">
+<ul class="org-ul">
+<li>$ locale
+</li>
+</ul>
+<p>
+to check all the locales configured on ubuntu
+</p>
+
+<ul class="org-ul">
+<li>$ sudo locale-gen "en<sub>US</sub>.UTF-8"
+</li>
+<li>$ sudo dpkg-reconfigure locales
+<ul class="org-ul">
+<li>From the list I search for en<sub>US</sub>.UTF-8, which happens to be number 149
+</li>
+<li>I type 149 and press enter
+</li>
+<li>The command prompt asks me to choose between
+<ul class="org-ul">
+<li>None
+</li>
+<li>C.UTF-8
+</li>
+<li>en<sub>US</sub>.UTF-8
+</li>
+</ul>
+</li>
+<li>I choose C.UTF8
+</li>
+<li>I rerun the command
+<ul class="org-ul">
+<li>nikola new<sub>post</sub> 999<sub>nikola</sub><sub>install</sub>.org
+</li>
+<li>it works!
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-5" class="outline-2">
+<h2 id="sec-5">Adding a picture to orgmode</h2>
+<div class="outline-text-2" id="text-5">
+</div><div id="outline-container-sec-5-1" class="outline-3">
+<h3 id="sec-5-1">from</h3>
+<div class="outline-text-3" id="text-5-1">
+<p>
+<a href="http://pragmaticemacs.com/emacs/org-mode-basics-iii-add-links-and-images-to-you-notes/">article insert images</a>
+</p>
+<div class="highlight"><pre><span></span>To add a picture simply type:
+[[file:&lt;link&gt;]]
+</pre></div>
+</div>
+</div>
+</div>
