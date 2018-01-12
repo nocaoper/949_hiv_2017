@@ -7,22 +7,38 @@
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <url>
   <loc>https://nocaoper.github.io/949_hiv_2017/</loc>
-  <lastmod>2018-01-11T22:12:00Z</lastmod>
+  <lastmod>2018-01-12T04:13:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://nocaoper.github.io/949_hiv_2017/2018/</loc>
+  <lastmod>2018-01-12T04:13:00Z</lastmod>
  </url>
  <url>
   <loc>https://nocaoper.github.io/949_hiv_2017/archive.html</loc>
-  <lastmod>2018-01-11T22:12:00Z</lastmod>
+  <lastmod>2018-01-12T04:21:00Z</lastmod>
  </url>
  <url>
   <loc>https://nocaoper.github.io/949_hiv_2017/categories/</loc>
-  <lastmod>2018-01-11T22:12:00Z</lastmod>
+  <lastmod>2018-01-12T03:07:00Z</lastmod>
  </url>
  <url>
   <loc>https://nocaoper.github.io/949_hiv_2017/galleries/</loc>
-  <lastmod>2018-01-11T22:12:00Z</lastmod>
+  <lastmod>2018-01-12T03:07:00Z</lastmod>
  </url>
  <url>
   <loc>https://nocaoper.github.io/949_hiv_2017/listings/</loc>
-  <lastmod>2018-01-11T22:12:00Z</lastmod>
+  <lastmod>2018-01-12T03:07:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://nocaoper.github.io/949_hiv_2017/posts/install-orgmode-with-nikola/</loc>
+  <lastmod>2018-01-12T04:13:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://nocaoper.github.io/949_hiv_2017/posts/installing-nikola-with-orgmode/</loc>
+  <lastmod>2018-01-12T04:13:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://nocaoper.github.io/949_hiv_2017/posts/orgmode-with-nikola/</loc>
+  <lastmod>2018-01-12T04:21:00Z</lastmod>
  </url>
 </urlset>

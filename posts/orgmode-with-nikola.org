@@ -1,0 +1,132 @@
+#+BEGIN_COMMENT
+.. title: OrgMode with Nikola
+.. slug: orgmode-with-nikola
+.. date: 2018-01-11 23:19:16 UTC-05:00
+.. tags: 
+.. category: 
+.. link: 
+.. description: 
+.. type: text
+#+END_COMMENT
+
+* First post on Nikola
+Thanks and comments on how to install static website generator. [[https://streakycobra.github.io/posts/blogging-in-org-mode-with-nikola/][Blogging in Org Mode With Nikola]]
+
+* Steps for installation
+
+** Add Makefile
+The difference between this and the tutorial is the fact that I've
+used python3 -m venv instead of pyenv
+#+BEGIN_SRC sh
+  ENVIRONMENT := _env/
+
+  default: help
+
+  $(ENVIRONMENT):
+      python3 -m venv "$@"
+
+  clean:
+      nikola clean
+      rm -rf $(ENVIRONMENT)
+
+  setup:
+      @echo "make $(ENVIRONMENT);"
+      @echo "source $(ENVIRONMENT)bin/activate;"
+      @echo "pip install --upgrade pip 'Nikola[extras]';"
+
+  help:
+      @echo "To setup Nikola environment, please use 'eval \$$(make setup)'."
+#+END_SRC
+
+** Install with the bash script
+type
+#+BEGIN_SRC sh
+  $ eval $(make setup)
+#+END_SRC
+
+** Create a repo github
+I added unlicense (as the license)
+ 
+** Create nikola dir
+Create nikola directory and then move the files into the upper
+repository
+
+- initialize nikola website
+$ nikola init website mv website
+- move its files into the upper directory (cleaner)
+$ mv website/* .
+- remove old empty folder
+$ rmdir my_first_website
+
+** Install orgmode into nikola
+$ nikola plugin -i orgmode
+
+** Build webpage
+- option 1
+  - nicola build
+  - //The port can be choosen freely
+    - nicola server -p 35729
+- option 2 (build and serve with autoupdate)
+  - nicola auto -p 35729
+
+** Save all files into github
+In here I recomment to use manual push
+- check new files
+$ git status
+- add git files
+$ git add <file or folder>
+- commit
+$ git commit -am "message"
+- push
+git push
+
+* Modify Python File for org Mode
+ when this was mentionned
+
+#+BEGIN_SRC python
+# Add the orgmode compiler to your COMPILERS dict.
+COMPILERS["orgmode"] = ('.org',)
+
+# Add org files to your POSTS, PAGES
+POSTS = POSTS + (("posts/*.org", "posts", "post.tmpl"),)
+PAGES = PAGES + (("stories/*.org", "stories", "story.tmpl"),)
+#+END_SRC
+
+I thought that it was about things in the emacs file. Finally it was
+about things in the conf.py file. So search the posts and search the
+compilers and add them into the conf.py file. Don't forget to commit.
+
+* Error about system language
+
+** Error happened when this command :
+#+BEGIN_SRC sh
+  nikola new_post 999_nikola_install.org
+#+END_SRC
+
+** Error picture
+[[file:https://github.com/nocaoper/949_hiv_2017/raw/master/docs/999_nikola/pictureNoLocaleConfigured.png]]
+
+** solution: [[https://askubuntu.com/questions/162391/how-do-i-fix-my-locale-issue][Article set locale (askubuntu.com)]]
+- $ locale
+to check all the locales configured on ubuntu
+
+- $ sudo locale-gen "en_US.UTF-8"
+- $ sudo dpkg-reconfigure locales
+  - From the list I search for en_US.UTF-8, which happens to be number 149
+  - I type 149 and press enter
+  - The command prompt asks me to choose between
+    - None
+    - C.UTF-8
+    - en_US.UTF-8
+  - I choose C.UTF8
+  - I rerun the command
+    - nikola new_post 999_nikola_install.org
+    - it works!
+
+* Adding a picture to orgmode
+** from
+[[http://pragmaticemacs.com/emacs/org-mode-basics-iii-add-links-and-images-to-you-notes/][article insert images]]
+#+BEGIN_SRC text
+  To add a picture simply type:
+  [[file:<link>]]
+#+END_SRC

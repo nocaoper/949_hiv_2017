@@ -1,0 +1,13 @@
+#+BEGIN_COMMENT
+.. title: Installing Nikola with OrgMode
+.. slug: installing-nikola-with-orgmode
+.. date: 2018-01-11 23:05:17 UTC-05:00
+.. tags: 
+.. category: 
+.. link: 
+.. description: 
+.. type: text
+#+END_COMMENT
+
+
+Write your post here.
