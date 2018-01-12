@@ -1,0 +1,17 @@
+* First post on Nikola
+Thanks and comments on how to install static website generator. [[https://streakycobra.github.io/posts/blogging-in-org-mode-with-nikola/][Blogging in Org Mode With Nikola]]
+
+when this was mentionned
+
+#+BEGIN_SRC python
+# Add the orgmode compiler to your COMPILERS dict.
+COMPILERS["orgmode"] = ('.org',)
+
+# Add org files to your POSTS, PAGES
+POSTS = POSTS + (("posts/*.org", "posts", "post.tmpl"),)
+PAGES = PAGES + (("stories/*.org", "stories", "story.tmpl"),)
+#+END_SRC
+
+I thought that it was about things in the emacs file. Finally it was
+about things in the conf.py file. So search the posts and search the
+compilers and add them into the conf.py file. Don't forget to commit.
