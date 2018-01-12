@@ -104,7 +104,7 @@ compilers and add them into the conf.py file. Don't forget to commit.
 #+END_SRC
 
 ** Error picture
-[[file:https:/github.com/nocaoper/949_hiv_2017/raw/master/posts/999_orgmode_with_nicola/pictureNoLocaleConfigured.png][ImageErreur]]
+[[file:https://raw.githubusercontent.com/nocaoper/949_hiv_2017/master/posts/999_orgmode_with_nicola/pictureNoLocaleConfigured.png]]
 
 ** solution: [[https://askubuntu.com/questions/162391/how-do-i-fix-my-locale-issue][Article set locale (askubuntu.com)]]
 - $ locale
