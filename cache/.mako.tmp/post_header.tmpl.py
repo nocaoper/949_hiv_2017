@@ -5,7 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1515731770.8676212
+_modified_time = 1515732629.3934076
 _enable_loop = True
 _template_filename = '/home/nocaoper/docs/pyEnv/999_pyEnvNicolae/_env/lib/python3.5/site-packages/nikola/data/themes/base/templates/post_header.tmpl'
 _template_uri = 'post_header.tmpl'
@@ -45,11 +45,11 @@ def render_body(context,**pageargs):
 def render_html_translations(context,post):
     __M_caller = context.caller_stack._push_frame()
     try:
+        translations = context.get('translations', UNDEFINED)
         sorted = context.get('sorted', UNDEFINED)
         lang = context.get('lang', UNDEFINED)
-        translations = context.get('translations', UNDEFINED)
-        len = context.get('len', UNDEFINED)
         messages = context.get('messages', UNDEFINED)
+        len = context.get('len', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\n')
         if len(post.translated_to) > 1:
@@ -93,8 +93,8 @@ def render_html_sourcelink(context):
 def render_html_title(context):
     __M_caller = context.caller_stack._push_frame()
     try:
-        post = context.get('post', UNDEFINED)
         title = context.get('title', UNDEFINED)
+        post = context.get('post', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\n')
         if title and not post.meta('hidetitle'):
@@ -111,19 +111,19 @@ def render_html_title(context):
 def render_html_post_header(context):
     __M_caller = context.caller_stack._push_frame()
     try:
+        date_format = context.get('date_format', UNDEFINED)
+        site_has_comments = context.get('site_has_comments', UNDEFINED)
         def html_translations(post):
             return render_html_translations(context,post)
-        def html_title():
-            return render_html_title(context)
-        author_pages_generated = context.get('author_pages_generated', UNDEFINED)
-        date_format = context.get('date_format', UNDEFINED)
+        messages = context.get('messages', UNDEFINED)
+        _link = context.get('_link', UNDEFINED)
         post = context.get('post', UNDEFINED)
-        site_has_comments = context.get('site_has_comments', UNDEFINED)
-        comments = _mako_get_namespace(context, 'comments')
         def html_sourcelink():
             return render_html_sourcelink(context)
-        _link = context.get('_link', UNDEFINED)
-        messages = context.get('messages', UNDEFINED)
+        author_pages_generated = context.get('author_pages_generated', UNDEFINED)
+        comments = _mako_get_namespace(context, 'comments')
+        def html_title():
+            return render_html_title(context)
         __M_writer = context.writer()
         __M_writer('\n    <header>\n        ')
         __M_writer(str(html_title()))
@@ -170,6 +170,6 @@ def render_html_post_header(context):
 
 """
 __M_BEGIN_METADATA
-{"filename": "/home/nocaoper/docs/pyEnv/999_pyEnvNicolae/_env/lib/python3.5/site-packages/nikola/data/themes/base/templates/post_header.tmpl", "line_map": {"128": 30, "129": 32, "130": 32, "131": 35, "132": 36, "133": 36, "134": 36, "135": 36, "136": 36, "137": 37, "138": 38, "139": 38, "140": 38, "141": 40, "142": 41, "143": 41, "144": 41, "145": 41, "146": 41, "147": 41, "148": 41, "149": 41, "150": 42, "23": 2, "152": 43, "153": 43, "26": 3, "155": 45, "156": 45, "29": 0, "158": 47, "159": 47, "160": 47, "161": 47, "34": 2, "35": 3, "36": 9, "37": 22, "38": 28, "39": 52, "171": 165, "154": 45, "45": 11, "157": 46, "163": 49, "54": 11, "55": 12, "56": 13, "57": 14, "58": 14, "59": 15, "60": 16, "61": 17, "62": 17, "63": 17, "64": 17, "65": 17, "66": 17, "67": 17, "68": 20, "74": 24, "162": 47, "81": 24, "82": 25, "83": 26, "84": 26, "85": 26, "86": 26, "87": 26, "164": 50, "93": 5, "165": 50, "151": 43, "99": 5, "100": 6, "101": 7, "102": 7, "103": 7, "104": 7, "105": 7, "111": 30}, "uri": "post_header.tmpl", "source_encoding": "utf-8"}
+{"line_map": {"128": 30, "129": 32, "130": 32, "131": 35, "132": 36, "133": 36, "134": 36, "135": 36, "136": 36, "137": 37, "138": 38, "139": 38, "140": 38, "141": 40, "142": 41, "143": 41, "144": 41, "145": 41, "146": 41, "147": 41, "148": 41, "149": 41, "150": 42, "23": 2, "152": 43, "153": 43, "26": 3, "155": 45, "156": 45, "29": 0, "158": 47, "159": 47, "160": 47, "161": 47, "34": 2, "35": 3, "36": 9, "37": 22, "38": 28, "39": 52, "171": 165, "154": 45, "45": 11, "157": 46, "163": 49, "54": 11, "55": 12, "56": 13, "57": 14, "58": 14, "59": 15, "60": 16, "61": 17, "62": 17, "63": 17, "64": 17, "65": 17, "66": 17, "67": 17, "68": 20, "74": 24, "162": 47, "81": 24, "82": 25, "83": 26, "84": 26, "85": 26, "86": 26, "87": 26, "164": 50, "93": 5, "165": 50, "151": 43, "99": 5, "100": 6, "101": 7, "102": 7, "103": 7, "104": 7, "105": 7, "111": 30}, "source_encoding": "utf-8", "uri": "post_header.tmpl", "filename": "/home/nocaoper/docs/pyEnv/999_pyEnvNicolae/_env/lib/python3.5/site-packages/nikola/data/themes/base/templates/post_header.tmpl"}
 __M_END_METADATA
 """
