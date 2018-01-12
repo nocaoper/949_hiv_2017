@@ -20,9 +20,22 @@ compilers and add them into the conf.py file. Don't forget to commit.
 
 * Error about system language
 
+** Error happened when this command :
+#+BEGIN_SRC sh
+  nikola new_post 999_nikola_install.org
+#+END_SRC
+** Error picture
+[[file:https://github.com/nocaoper/949_hiv_2017/raw/master/docs/999_nikola/pictureNoLocaleConfigured.png]]
 ** solution: [[https://askubuntu.com/questions/162391/how-do-i-fix-my-locale-issue][Article set locale (askubuntu.com)]]
 $ locale
 to check all the locales configured on ubuntu
 
 sudo locale-gen "en_US.UTF-8"
 sudo dpkg-reconfigure locales
+* Adding a picture
+** from
+[[http://pragmaticemacs.com/emacs/org-mode-basics-iii-add-links-and-images-to-you-notes/][article insert images]]
+#+BEGIN_SRC text
+  To add a picture simply type:
+  [[file:<link>]]
+#+END_SRC
