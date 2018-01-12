@@ -51,12 +51,14 @@ I added unlicense (as the license)
 Create nikola directory and then move the files into the upper
 repository
 
+#+BEGIN_SRC text
 - initialize nikola website
 $ nikola init website mv website
 - move its files into the upper directory (cleaner)
 $ mv website/* .
 - remove old empty folder
-$ rmdir my_first_website
+$ rmdir website
+#+END_SRC
 
 ** Install orgmode into nikola
 $ nikola plugin -i orgmode
